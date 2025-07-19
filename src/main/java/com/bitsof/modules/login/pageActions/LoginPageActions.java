@@ -28,7 +28,11 @@ public class LoginPageActions {
         loginActions.inputLoginUsername(username);
         loginActions.inputLoginPassword(password);
         loginActions.clickLoginButton();
-        loginActions.clickbuttonViewMenu();
     }
 
+    public void performLogout() {
+        loginActions.clickbuttonViewMenu();
+        loginActions.clickLogoutMenuItem();
+        loginActions.clickLogoutButton();
+    }
 }

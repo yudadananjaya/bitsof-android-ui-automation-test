@@ -24,6 +24,10 @@ public class LoginActions {
         driver.findElement(LoginLocators.buttonLoginMenuItem).click();
     }
 
+    public void clickLogoutMenuItem() {
+        driver.findElement(LoginLocators.buttonLogoutMenuItem).click();
+    }
+
     public void inputLoginUsername(String email) {
         driver.findElement(LoginLocators.inputUsernameField).sendKeys(email);
     }
@@ -34,6 +38,10 @@ public class LoginActions {
 
     public void clickLoginButton() {
         driver.findElement(LoginLocators.buttonLogin).click();
+    }
+
+    public void clickLogoutButton() {
+        driver.findElement(LoginLocators.buttonLogout).click();
     }
 
     public void waitButtonLoginDisplayed() {

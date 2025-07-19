@@ -21,7 +21,7 @@ public class LoginTest extends LoginBaseTest {
     }
 
     @Test(priority = 1)
-    public void testSuccessfulLoginPropFile() {
+    public void testSuccessfulLogin() {
         loadTestData("tc-001-login-test-data.properties");
 
         String username = testUtils.getTestData("valid_username");
@@ -29,6 +29,20 @@ public class LoginTest extends LoginBaseTest {
 
         loginPageActions.performLogin(username, password);
         loginAssertions.assertButtonLogoutMenuItemDisplayed();
+        loginPageActions.performLogout();
+    }
+
+    @Test(priority = 2)
+    public void testSuccessfulLogout() {
+        loadTestData("tc-002-login-test-data.properties");
+
+        String username = testUtils.getTestData("valid_username");
+        String password = testUtils.getTestData("valid_password");
+
+        loginPageActions.performLogin(username, password);
+        loginPageActions.performLogout();
+        loginAssertions.assertButtonLoginDisplayed();
+
     }
 
     // @Test(priority = 2)

@@ -16,4 +16,6 @@ public class LoginLocators {
         public static By inputPasswordField = By.xpath("//android.widget.EditText[@resource-id='com.saucelabs.mydemoapp.android:id/passwordET']");
 
         public static By buttonLogin = By.xpath("//android.widget.Button[@content-desc='Tap to login with given credentials']");
+
+        public static By buttonLogout = By.xpath("//android.widget.Button[@resource-id='android:id/button1']");
 }
