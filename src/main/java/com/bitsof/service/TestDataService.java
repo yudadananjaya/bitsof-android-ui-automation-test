@@ -3,10 +3,6 @@ package com.bitsof.service;
 import com.bitsof.config.DBConfig;
 import com.bitsof.model.TestData;
 import com.bitsof.model.Account;
-import com.bitsof.model.push.jobs.PushChangesJobs;
-import com.bitsof.model.pull.jobs.PullChangesJobs;
-import com.bitsof.model.push.jobs.PushChangesJobsWrapper;
-import com.bitsof.model.pull.jobs.PullChangesJobsWrapper;
 
 import com.bitsof.utils.DatabaseUtils;
 
@@ -38,14 +34,6 @@ public class TestDataService {
 
                 data.setExpectedResultData(
                         DatabaseUtils.parseJsonColumn(rs, "expected_result_data", java.util.Map.class));
-
-                PushChangesJobsWrapper pushChangesWrapper = DatabaseUtils.parseJsonColumn(rs, "push_changes",
-                        PushChangesJobsWrapper.class);
-                data.setPushChanges(pushChangesWrapper != null ? pushChangesWrapper.getJobs() : null);
-
-                PullChangesJobsWrapper pullChangesWrapper = DatabaseUtils.parseJsonColumn(rs, "pull_changes",
-                        PullChangesJobsWrapper.class);
-                data.setPullChanges(pullChangesWrapper != null ? pullChangesWrapper.getJobs() : null);
 
                 return data;
             }
