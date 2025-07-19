@@ -21,7 +21,6 @@ public class LoginBaseTest extends BaseTest {
         loginActions = new LoginActions(driver);
         loginPageActions = new LoginPageActions(driver);
         loginAssertions = new LoginAssertions(driver);
-        testUtils = new TestUtils();
         testDataService = new TestDataService();
     }
 

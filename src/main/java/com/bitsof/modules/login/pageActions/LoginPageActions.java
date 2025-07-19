@@ -22,16 +22,13 @@ public class LoginPageActions {
     }
 
     public void performLogin(String username, String password) {
-        loginAssertions.assertLoginPageDisplayed();
-        loginActions.enterEmail(username);
-        loginActions.enterPassword(password);
-        loginActions.clickLogin();
-    }
-
-    public void performLogout(String vesselName, String username) {
-        loginActions.clickProfileSection(vesselName, username);
-        loginActions.clickLogout();
-        loginActions.clickLogoutConfirmationButton();
+        loginActions.clickbuttonViewMenu();
+        loginActions.clickLoginMenuItem();
+        loginAssertions.assertButtonLoginDisplayed();
+        loginActions.inputLoginUsername(username);
+        loginActions.inputLoginPassword(password);
+        loginActions.clickLoginButton();
+        loginActions.clickbuttonViewMenu();
     }
 
 }

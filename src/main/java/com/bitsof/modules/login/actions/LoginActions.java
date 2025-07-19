@@ -14,30 +14,35 @@ public class LoginActions {
         this.driver = driver;
     }
 
-    public void enterEmail(String email) {
-        driver.findElement(LoginLocators.emailField).sendKeys(email);
+    public void clickbuttonViewMenu() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(LoginLocators.buttonViewMenu));
+        driver.findElement(LoginLocators.buttonViewMenu).click();
     }
 
-    public void enterPassword(String password) {
-        driver.findElement(LoginLocators.passwordField).sendKeys(password);
+    public void clickLoginMenuItem() {
+        driver.findElement(LoginLocators.buttonLoginMenuItem).click();
     }
 
-    public void clickLogin() {
-        driver.findElement(LoginLocators.loginButton).click();
+    public void inputLoginUsername(String email) {
+        driver.findElement(LoginLocators.inputUsernameField).sendKeys(email);
     }
 
-    public void clickLogout() {
-        driver.findElement(LoginLocators.logoutButton).click();
+    public void inputLoginPassword(String password) {
+        driver.findElement(LoginLocators.inputPasswordField).sendKeys(password);
     }
 
-    public void clickLogoutConfirmationButton() {
-        driver.findElement(LoginLocators.logoutConfirmationButton).click();
+    public void clickLoginButton() {
+        driver.findElement(LoginLocators.buttonLogin).click();
     }
 
-    public void clickProfileSection(String vesselName, String username) {
-        By profileSection = LoginLocators.profileSection(vesselName, username);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-        wait.until(ExpectedConditions.elementToBeClickable(profileSection)).click();
+    public void waitButtonLoginDisplayed() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(LoginLocators.buttonLogin));
     }
 
+    public void waitButtonLogoutMenuItemDisplayed() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(LoginLocators.buttonLogoutMenuItem));
+    }
 }

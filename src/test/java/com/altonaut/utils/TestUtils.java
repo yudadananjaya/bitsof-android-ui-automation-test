@@ -2,20 +2,20 @@ package com.bitsof.utils;
 
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.WebElement;
-import java.util.Properties;
 import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
 
 public class TestUtils {
     private Properties testData;
 
-    public TestUtils() {
+    public TestUtils(String testDataPath) {
         testData = new Properties();
-        try {
-            FileInputStream input = new FileInputStream("src/test/resources/login-test-data.properties");
+        try (FileInputStream input = new FileInputStream(testDataPath)) {
             testData.load(input);
-            input.close();
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
+            throw new RuntimeException("Failed to load test data from path: " + testDataPath);
         }
     }
 
@@ -23,7 +23,7 @@ public class TestUtils {
         return testData.getProperty(key);
     }
 
-    public static void waitForElement(AndroidDriver driver, WebElement element, int timeout) {
-        // Implementation using WebDriverWait
+    public static void waitForElement(AndroidDriver driver, WebElement element, int timeoutInSeconds) {
+        // Implementasi opsional: explicit wait
     }
 }
