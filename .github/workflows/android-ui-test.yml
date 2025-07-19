@@ -1,0 +1,50 @@
+name: Android UI Automation Test
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  checkout:
+    name: Checkout Repo
+    runs-on: self-hosted
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+  download-apk:
+    name: Download APK from Release
+    runs-on: self-hosted
+    needs: checkout
+    steps:
+      - name: Check GitHub CLI version
+        run: gh --version
+
+      - name: Download APK via ghMore actions
+        run: |
+          mkdir apk
+          gh release download mda-2.2.0-25 `
+            --repo yudadananjaya/bitsof-android-ui-automation-test `
+            --pattern mda-2.2.0-25.apk `
+            --dir apk
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+
+  run-ui-tests:
+    name: Run Android UI Tests
+    runs-on: self-hosted
+    needs: download-apk
+    steps:
+      - name: Run Maven Tests
+        shell: powershell
+        run: |
+          mvn clean test
+
+      - name: Upload Surefire Reports
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: surefire-reports
+          path: target/surefire-reports
