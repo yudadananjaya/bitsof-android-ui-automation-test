@@ -1,0 +1,7 @@
+<suite name="Cart Test Suite">
+    <test name="Cart Tests">
+        <classes>
+            <class name="com.bitsof.tests.cart.CartTest"/>
+        </classes>
+    </test>
+</suite>
