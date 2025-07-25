@@ -2,7 +2,7 @@
 <suite name="Bitsof Android Automation Suite">
     <test name="Cart Tests">
         <packages>
-            <package name="com.bitsof.tests.cart"/>
+            <package name="com.bitsof.tests.*"/>
         </packages>
     </test>
 </suite>
