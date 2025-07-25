@@ -29,13 +29,15 @@ public class CartTest extends CartBaseTest {
 
         String productColor = testUtils.getTestData("product_color");
 
-        cartPageActions.performAddToCart(productIndex, productColor);
+        String scrollCounter = testUtils.getTestData("scroll_counter");
+
+        cartPageActions.performAddToCart(productIndex, productColor, scrollCounter);
 
         try {
             Thread.sleep(3000); // Delay 3 seconds
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        
+
     }
 }

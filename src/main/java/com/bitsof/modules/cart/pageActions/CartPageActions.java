@@ -11,19 +11,19 @@ import com.bitsof.function.BitsofApp;
 public class CartPageActions {
     private final AndroidDriver driver;
     private final CartActions cartActions;
-    //private final LoginAssertions loginAssertions;
+    // private final LoginAssertions loginAssertions;
     private final GlobalAssertions globalAssertions;
 
     public CartPageActions(AndroidDriver driver) {
         this.driver = driver;
         this.cartActions = new CartActions(driver);
-        //this.loginAssertions = new LoginAssertions(driver);
+        // this.loginAssertions = new LoginAssertions(driver);
         this.globalAssertions = new GlobalAssertions(driver);
     }
 
-    public void performAddToCart(int productIndex, String productColor) {
+    public void performAddToCart(int productIndex, String productColor, String scrollCounter) {
         cartActions.clickImageProductView(productIndex);
-        cartActions.scrollProductDetailPage();
+        cartActions.scrollProductDetailPage(scrollCounter);
         cartActions.clickButtonProductColorSelection(productColor);
         cartActions.clickButtonIncreaseItemQty();
         cartActions.clickButtonAddToCart();
