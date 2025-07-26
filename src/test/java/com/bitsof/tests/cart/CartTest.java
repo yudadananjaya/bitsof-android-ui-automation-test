@@ -33,11 +33,5 @@ public class CartTest extends CartBaseTest {
 
         cartPageActions.performAddToCart(productIndex, productColor, scrollCounter);
 
-        try {
-            Thread.sleep(3000); // Delay 3 seconds
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
     }
 }

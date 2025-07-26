@@ -1,7 +1,0 @@
-<suite name="Login Test Suite">
-    <test name="Login Tests">
-        <classes>
-            <class name="com.bitsof.tests.login.*"/>
-        </classes>
-    </test>
-</suite>

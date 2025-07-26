@@ -46,12 +46,6 @@ public class CartActions {
 
     public void scrollProductDetailPage(String scrollCounter) {
         driver.findElement(CartLocators.scrollToBottomInScrollView(scrollCounter));
-
-        try {
-            Thread.sleep(1000); // Delay 3 seconds
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 
 }
